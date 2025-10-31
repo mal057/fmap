@@ -1,0 +1,21 @@
+{
+  "name": "@fmap/api",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "wrangler dev",
+    "build": "tsc",
+    "deploy": "wrangler deploy",
+    "type-check": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@fmap/shared-types": "workspace:*",
+    "@fmap/shared-utils": "workspace:*",
+    "@fmap/file-parsers": "workspace:*"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^4.20231218.0",
+    "typescript": "^5.3.3",
+    "wrangler": "^3.19.0"
+  }
+}
