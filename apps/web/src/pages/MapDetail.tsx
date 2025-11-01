@@ -3,10 +3,18 @@ import { useParams, Link, useNavigate } from 'react-router-dom';
 import { createClient } from '@supabase/supabase-js';
 import { getFile, downloadFile, deleteFile, formatFileSize, formatRelativeTime, type FileMetadata } from '../utils/api';
 
-const supabase = createClient(
-  import.meta.env.VITE_SUPABASE_URL,
-  import.meta.env.VITE_SUPABASE_ANON_KEY
-);
+// Validate environment variables before creating client
+const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
+const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
+
+if (!supabaseUrl || !supabaseAnonKey) {
+  throw new Error(
+    'Missing required Supabase environment variables. ' +
+    'Please set VITE_SUPABASE_URL and VITE_SUPABASE_ANON_KEY in your .env file.'
+  );
+}
+
+const supabase = createClient(supabaseUrl, supabaseAnonKey);
 
 export default function MapDetail() {
   const { id } = useParams<{ id: string }>();

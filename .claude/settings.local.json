@@ -4,7 +4,17 @@
       "Bash(npm run type-check:*)",
       "Bash(npx tsc:*)",
       "Bash(find:*)",
-      "Bash(claude-task task-planner \"Create a comprehensive implementation plan for GitHub Actions CI/CD pipeline with GitHub Pages deployment.\n\n**Current State Analysis:**\n- Monorepo using pnpm workspaces\n- React + Vite web app at apps/web\n- Node.js version: >=18.0.0, pnpm >=8.0.0\n- GitHub repo: https://mal057.github.io/fmap/\n- Vite config already has base path configured: ''/fmap/''\n- Existing scripts: build:web, deploy:web (using gh-pages package)\n- Has TypeScript type checking and linting\n- No existing .github/workflows directory\n\n**Requirements:**\n1. GitHub Actions deployment workflow (.github/workflows/deploy.yml)\n   - Trigger on push to main\n   - Build React web app\n   - Run tests before deployment\n   - Deploy to GitHub Pages\n   - Use pnpm with caching\n   - Set Node.js 20.x\n\n2. CI workflow (.github/workflows/ci.yml)\n   - Run on PRs and all pushes\n   - TypeScript type checking\n   - Linting\n   - Tests\n   - Build verification\n\n3. Vite config verification (apps/web/vite.config.ts)\n   - Ensure correct base path\n   - Production build settings\n\n4. Package.json updates\n   - Add any missing deployment scripts\n\n5. Deployment documentation (docs/deployment.md)\n   - Complete deployment guide\n   - GitHub Pages settings\n   - Troubleshooting\n   - Environment variables\n\n6. README updates\n   - Deployment badges\n   - Live demo link\n   - Deployment instructions\n\n**Task:** Create ordered list of implementation tasks with specific details for each file to create/modify.\")"
+      "Bash(claude-task task-planner \"Create a comprehensive implementation plan for GitHub Actions CI/CD pipeline with GitHub Pages deployment.\n\n**Current State Analysis:**\n- Monorepo using pnpm workspaces\n- React + Vite web app at apps/web\n- Node.js version: >=18.0.0, pnpm >=8.0.0\n- GitHub repo: https://mal057.github.io/fmap/\n- Vite config already has base path configured: ''/fmap/''\n- Existing scripts: build:web, deploy:web (using gh-pages package)\n- Has TypeScript type checking and linting\n- No existing .github/workflows directory\n\n**Requirements:**\n1. GitHub Actions deployment workflow (.github/workflows/deploy.yml)\n   - Trigger on push to main\n   - Build React web app\n   - Run tests before deployment\n   - Deploy to GitHub Pages\n   - Use pnpm with caching\n   - Set Node.js 20.x\n\n2. CI workflow (.github/workflows/ci.yml)\n   - Run on PRs and all pushes\n   - TypeScript type checking\n   - Linting\n   - Tests\n   - Build verification\n\n3. Vite config verification (apps/web/vite.config.ts)\n   - Ensure correct base path\n   - Production build settings\n\n4. Package.json updates\n   - Add any missing deployment scripts\n\n5. Deployment documentation (docs/deployment.md)\n   - Complete deployment guide\n   - GitHub Pages settings\n   - Troubleshooting\n   - Environment variables\n\n6. README updates\n   - Deployment badges\n   - Live demo link\n   - Deployment instructions\n\n**Task:** Create ordered list of implementation tasks with specific details for each file to create/modify.\")",
+      "Bash(pnpm dev:web:*)",
+      "Bash(cat:*)",
+      "Bash(pnpm dev:*)",
+      "Bash(pnpm ls:*)",
+      "Bash(npx vite:*)",
+      "Bash(node test-env.js:*)",
+      "Bash(timeout 10 pnpm dev:web:*)",
+      "Bash(curl:*)",
+      "WebFetch(domain:localhost)",
+      "Bash(node verify-env.mjs:*)"
     ],
     "deny": [],
     "ask": []

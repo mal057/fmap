@@ -5,6 +5,8 @@ import path from 'path'
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
+  // Use absolute path to ensure .env is loaded from the correct directory
+  envDir: path.resolve(__dirname),
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src'),

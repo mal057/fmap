@@ -4,6 +4,7 @@ import ProtectedRoute from './components/ProtectedRoute';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import Profile from './pages/Profile';
+import EnvTest from './pages/EnvTest';
 
 function Home() {
   const { isAuthenticated, user } = useAuth();
@@ -75,6 +76,7 @@ function AppRoutes() {
     <div className="app">
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/env-test" element={<EnvTest />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route

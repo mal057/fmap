@@ -6,13 +6,33 @@
 import { createClient } from '@supabase/supabase-js';
 
 // Environment variable keys for different platforms
-const SUPABASE_URL_KEY = typeof process !== 'undefined' && process.env?.VITE_SUPABASE_URL
-  ? process.env.VITE_SUPABASE_URL
-  : import.meta?.env?.VITE_SUPABASE_URL;
+// Check multiple sources to ensure compatibility across build tools and environments
+const SUPABASE_URL_KEY =
+  // First check Vite's import.meta.env (for browser/Vite environments)
+  (typeof import.meta !== 'undefined' && import.meta.env?.VITE_SUPABASE_URL) ||
+  // Then check process.env (for Node.js/build time)
+  (typeof process !== 'undefined' && process.env?.VITE_SUPABASE_URL) ||
+  // Check window for any runtime injected variables
+  (typeof window !== 'undefined' && (window as any).VITE_SUPABASE_URL) ||
+  undefined;
 
-const SUPABASE_ANON_KEY = typeof process !== 'undefined' && process.env?.VITE_SUPABASE_ANON_KEY
-  ? process.env.VITE_SUPABASE_ANON_KEY
-  : import.meta?.env?.VITE_SUPABASE_ANON_KEY;
+const SUPABASE_ANON_KEY =
+  // First check Vite's import.meta.env (for browser/Vite environments)
+  (typeof import.meta !== 'undefined' && import.meta.env?.VITE_SUPABASE_ANON_KEY) ||
+  // Then check process.env (for Node.js/build time)
+  (typeof process !== 'undefined' && process.env?.VITE_SUPABASE_ANON_KEY) ||
+  // Check window for any runtime injected variables
+  (typeof window !== 'undefined' && (window as any).VITE_SUPABASE_ANON_KEY) ||
+  undefined;
+
+// Debug logging in development
+if (typeof import.meta !== 'undefined' && import.meta.env?.DEV) {
+  console.log('[shared-utils/supabase.ts] Environment check:');
+  console.log('  SUPABASE_URL_KEY:', SUPABASE_URL_KEY || 'NOT SET');
+  console.log('  SUPABASE_ANON_KEY:', SUPABASE_ANON_KEY ? 'SET (hidden)' : 'NOT SET');
+  console.log('  import.meta available:', typeof import.meta !== 'undefined');
+  console.log('  import.meta.env:', typeof import.meta !== 'undefined' ? import.meta.env : 'N/A');
+}
 
 // Validate required environment variables
 if (!SUPABASE_URL_KEY || !SUPABASE_ANON_KEY) {

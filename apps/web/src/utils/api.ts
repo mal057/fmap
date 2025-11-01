@@ -2,10 +2,23 @@ import { createClient } from '@supabase/supabase-js';
 
 const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:8787';
 
-const supabase = createClient(
-  import.meta.env.VITE_SUPABASE_URL,
-  import.meta.env.VITE_SUPABASE_ANON_KEY
-);
+// Debug environment variables
+console.log('[api.ts] Environment check:');
+console.log('VITE_SUPABASE_URL:', import.meta.env.VITE_SUPABASE_URL);
+console.log('VITE_SUPABASE_ANON_KEY:', import.meta.env.VITE_SUPABASE_ANON_KEY ? 'Set (hidden)' : 'Not set');
+
+// Validate environment variables before creating client
+const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
+const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
+
+if (!supabaseUrl || !supabaseAnonKey) {
+  throw new Error(
+    'Missing required Supabase environment variables. ' +
+    'Please set VITE_SUPABASE_URL and VITE_SUPABASE_ANON_KEY in your .env file.'
+  );
+}
+
+const supabase = createClient(supabaseUrl, supabaseAnonKey);
 
 export interface FileMetadata {
   id: string;
