@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx version="1.1" creator="Garmin">
+  <wpt lat="37.7749" lon="-122.4194">
+    <name>Test Waypoint 1</name>
+    <desc>A test waypoint</desc>
+    <sym>Flag, Blue</sym>
+  </wpt>
+  <wpt lat="37.7849" lon="-122.4094">
+    <name>Test Waypoint 2</name>
+    <desc>Another test waypoint</desc>
+    <sym>Fishing Hot Spot Facility</sym>
+  </wpt>
+  <trk>
+    <name>Test Track</name>
+    <trkseg>
+      <trkpt lat="37.7749" lon="-122.4194">
+        <ele>10.5</ele>
+        <time>2023-12-01T10:00:00Z</time>
+      </trkpt>
+      <trkpt lat="37.7750" lon="-122.4195">
+        <ele>11.2</ele>
+        <time>2023-12-01T10:01:00Z</time>
+      </trkpt>
+    </trkseg>
+  </trk>
+</gpx>

@@ -1,6 +1,12 @@
 # FishMap
 
+[![Deploy to GitHub Pages](https://github.com/mal057/fmap/actions/workflows/deploy.yml/badge.svg)](https://github.com/mal057/fmap/actions/workflows/deploy.yml)
+[![CI](https://github.com/mal057/fmap/actions/workflows/ci.yml/badge.svg)](https://github.com/mal057/fmap/actions/workflows/ci.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 A cross-platform application for managing fish finder waypoints from Lowrance, Garmin, and Humminbird devices.
+
+**Live Demo**: [https://mal057.github.io/fmap/](https://mal057.github.io/fmap/)
 
 ## Project Structure
 
@@ -87,8 +93,33 @@ Fmap/
 
 ### Deployment
 
-- **Deploy web**: `pnpm deploy:web` - Deploys to GitHub Pages
-- **Deploy API**: `pnpm deploy:api` - Deploys to Cloudflare Workers
+#### Automatic Deployment (Recommended)
+
+The web application automatically deploys to GitHub Pages when you push to the `main` branch:
+
+```bash
+git add .
+git commit -m "Your changes"
+git push origin main
+```
+
+The GitHub Actions workflow will:
+1. Run type checking and linting
+2. Build the application
+3. Deploy to GitHub Pages
+
+View deployment status: [Actions Tab](https://github.com/mal057/fmap/actions)
+
+#### Manual Deployment
+
+- **Deploy web**: `pnpm deploy:web` - Manually deploy to GitHub Pages using gh-pages
+- **Deploy API**: `pnpm deploy:api` - Deploy to Cloudflare Workers
+
+#### Deployment Documentation
+
+For detailed deployment instructions, troubleshooting, and configuration:
+- See [docs/deployment.md](docs/deployment.md) for complete deployment guide
+- Includes GitHub Pages setup, environment variables, and custom domain configuration
 
 ## Environment Variables
 

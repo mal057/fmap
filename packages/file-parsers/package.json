@@ -5,13 +5,18 @@
   "main": "./src/index.ts",
   "types": "./src/index.ts",
   "scripts": {
-    "type-check": "tsc --noEmit"
+    "type-check": "tsc --noEmit",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage"
   },
   "dependencies": {
     "@fmap/shared-types": "workspace:*",
-    "@fmap/shared-utils": "workspace:*"
+    "@fmap/shared-utils": "workspace:*",
+    "xml2js": "^0.6.2"
   },
   "devDependencies": {
+    "@types/xml2js": "^0.4.14",
     "typescript": "^5.3.3"
   }
 }

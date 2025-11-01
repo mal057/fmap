@@ -6,7 +6,10 @@
     "dev": "wrangler dev",
     "build": "tsc",
     "deploy": "wrangler deploy",
-    "type-check": "tsc --noEmit"
+    "type-check": "tsc --noEmit",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage"
   },
   "dependencies": {
     "@fmap/shared-types": "workspace:*",

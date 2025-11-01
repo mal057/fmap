@@ -8,14 +8,40 @@ binding = "WAYPOINTS_BUCKET"
 bucket_name = "fmap-waypoints"
 preview_bucket_name = "fmap-waypoints-preview"
 
+# KV namespace binding for rate limiting
+# Create with: wrangler kv:namespace create "RATE_LIMIT_KV"
+[[kv_namespaces]]
+binding = "RATE_LIMIT_KV"
+id = "YOUR_KV_NAMESPACE_ID"
+preview_id = "YOUR_PREVIEW_KV_NAMESPACE_ID"
+
 # Environment variables (secrets should be set via wrangler secret put)
 [vars]
 ENVIRONMENT = "development"
+MALWARE_SCAN_ENABLED = "false"
+RATE_LIMIT_UPLOADS_PER_HOUR = "10"
+RATE_LIMIT_DOWNLOADS_PER_HOUR = "100"
+RATE_LIMIT_API_REQUESTS_PER_HOUR = "1000"
+ALLOWED_ORIGINS = "*"
 
 # Production environment
 [env.production]
 name = "fmap-api-production"
-vars = { ENVIRONMENT = "production" }
+
+[env.production.vars]
+ENVIRONMENT = "production"
+MALWARE_SCAN_ENABLED = "true"
+RATE_LIMIT_UPLOADS_PER_HOUR = "10"
+RATE_LIMIT_DOWNLOADS_PER_HOUR = "100"
+RATE_LIMIT_API_REQUESTS_PER_HOUR = "1000"
+# Set ALLOWED_ORIGINS to your production domain(s)
+ALLOWED_ORIGINS = "https://fishmap.com,https://app.fishmap.com"
+
+# Secrets should be set via: wrangler secret put <SECRET_NAME>
+# - SUPABASE_JWT_SECRET
+# - SUPABASE_URL
+# - SUPABASE_ANON_KEY
+# - VIRUSTOTAL_API_KEY
 
 # CORS configuration
 [cors]

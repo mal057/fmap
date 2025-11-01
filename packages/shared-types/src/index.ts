@@ -16,7 +16,7 @@ export interface Waypoint {
   icon?: string;
 }
 
-export type DeviceType = 'lowrance' | 'garmin' | 'humminbird';
+export type DeviceType = 'lowrance' | 'garmin' | 'humminbird' | 'raymarine';
 
 // File format types
 export interface WaypointFile {

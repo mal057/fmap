@@ -4,6 +4,13 @@
 
 import type { Waypoint, MapBounds } from '@fmap/shared-types';
 
+// Export authentication modules
+export { supabase } from './supabase';
+export type { User, Session, AuthError } from './supabase';
+export { AuthProvider, AuthContext } from './auth/AuthContext';
+export type { AuthContextType } from './auth/AuthContext';
+export { useAuth } from './auth/useAuth';
+
 /**
  * Format coordinates to a standard display format
  */
