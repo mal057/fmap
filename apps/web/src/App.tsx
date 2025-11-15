@@ -90,7 +90,11 @@ function AppRoutes() {
         />
         <Route
           path="/upload"
-          element={<UploadPage />}
+          element={
+            <ProtectedRoute>
+              <UploadPage />
+            </ProtectedRoute>
+          }
         />
         <Route
           path="/waypoints"

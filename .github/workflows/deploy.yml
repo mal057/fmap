@@ -47,6 +47,9 @@ jobs:
         run: pnpm build:web
         env:
           NODE_ENV: production
+          VITE_SUPABASE_URL: https://vwlnnocosqsureltloqi.supabase.co
+          VITE_SUPABASE_ANON_KEY: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZ3bG5ub2Nvc3FzdXJlbHRsb3FpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjE5NjA5NTIsImV4cCI6MjA3NzUzNjk1Mn0.V9w1VTxlk9HN9Mh5ZcOmigAPPms62MTlsnT6Dxt7IJM
+          VITE_API_URL: https://fmap-api.mal057-fmap.workers.dev
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3

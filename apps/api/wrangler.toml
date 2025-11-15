@@ -9,11 +9,10 @@ bucket_name = "fmap-waypoints"
 preview_bucket_name = "fmap-waypoints-preview"
 
 # KV namespace binding for rate limiting
-# Create with: wrangler kv:namespace create "RATE_LIMIT_KV"
 [[kv_namespaces]]
 binding = "RATE_LIMIT_KV"
-id = "YOUR_KV_NAMESPACE_ID"
-preview_id = "YOUR_PREVIEW_KV_NAMESPACE_ID"
+id = "574949cfff4441fd8817070941c8b3ce"
+preview_id = "13a31b0931b64e5387c4399806ff3c18"
 
 # Environment variables (secrets should be set via wrangler secret put)
 [vars]
@@ -30,12 +29,12 @@ name = "fmap-api-production"
 
 [env.production.vars]
 ENVIRONMENT = "production"
-MALWARE_SCAN_ENABLED = "true"
+MALWARE_SCAN_ENABLED = "false"
 RATE_LIMIT_UPLOADS_PER_HOUR = "10"
 RATE_LIMIT_DOWNLOADS_PER_HOUR = "100"
 RATE_LIMIT_API_REQUESTS_PER_HOUR = "1000"
 # Set ALLOWED_ORIGINS to your production domain(s)
-ALLOWED_ORIGINS = "https://fishmap.com,https://app.fishmap.com"
+ALLOWED_ORIGINS = "https://mal057.github.io"
 
 # Secrets should be set via: wrangler secret put <SECRET_NAME>
 # - SUPABASE_JWT_SECRET
@@ -43,9 +42,3 @@ ALLOWED_ORIGINS = "https://fishmap.com,https://app.fishmap.com"
 # - SUPABASE_ANON_KEY
 # - SUPABASE_SERVICE_KEY (service role key for database writes, bypasses RLS)
 # - VIRUSTOTAL_API_KEY
-
-# CORS configuration
-[cors]
-origins = ["*"]
-methods = ["GET", "POST", "PUT", "DELETE", "OPTIONS"]
-allow_headers = ["Content-Type", "Authorization"]
