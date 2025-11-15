@@ -85,6 +85,91 @@ const ALLOWED_FILE_TYPES = {
     magicNumbers: [[0x00, 0x00]],
     maxSize: 500 * 1024 * 1024,
   },
+  // Lowrance/Simrad/B&G additional formats
+  usr: {
+    extensions: ['.usr'],
+    mimeTypes: ['application/octet-stream'],
+    magicNumbers: [[0x00, 0x00]],
+    maxSize: 500 * 1024 * 1024,
+  },
+  at5: {
+    extensions: ['.at5'],
+    mimeTypes: ['application/octet-stream'],
+    magicNumbers: [[0x00, 0x00]],
+    maxSize: 500 * 1024 * 1024,
+  },
+  zdf: {
+    extensions: ['.zdf'],
+    mimeTypes: ['application/octet-stream'],
+    magicNumbers: [[0x00, 0x00]],
+    maxSize: 500 * 1024 * 1024,
+  },
+  // Humminbird additional formats
+  idx: {
+    extensions: ['.idx'],
+    mimeTypes: ['application/octet-stream'],
+    magicNumbers: [[0x00, 0x00]],
+    maxSize: 500 * 1024 * 1024,
+  },
+  hwr: {
+    extensions: ['.hwr'],
+    mimeTypes: ['application/octet-stream'],
+    magicNumbers: [[0x00, 0x00]],
+    maxSize: 500 * 1024 * 1024,
+  },
+  ht: {
+    extensions: ['.ht'],
+    mimeTypes: ['application/octet-stream'],
+    magicNumbers: [[0x00, 0x00]],
+    maxSize: 500 * 1024 * 1024,
+  },
+  // Furuno formats
+  rou: {
+    extensions: ['.rou'],
+    mimeTypes: ['application/octet-stream'],
+    magicNumbers: [[0x00, 0x00]],
+    maxSize: 500 * 1024 * 1024,
+  },
+  rat: {
+    extensions: ['.rat'],
+    mimeTypes: ['application/octet-stream'],
+    magicNumbers: [[0x00, 0x00]],
+    maxSize: 500 * 1024 * 1024,
+  },
+  mrk: {
+    extensions: ['.mrk'],
+    mimeTypes: ['application/octet-stream'],
+    magicNumbers: [[0x00, 0x00]],
+    maxSize: 500 * 1024 * 1024,
+  },
+  trk: {
+    extensions: ['.trk'],
+    mimeTypes: ['application/octet-stream'],
+    magicNumbers: [[0x00, 0x00]],
+    maxSize: 500 * 1024 * 1024,
+  },
+  tzd: {
+    extensions: ['.tzd'],
+    mimeTypes: ['application/octet-stream'],
+    magicNumbers: [[0x00, 0x00]],
+    maxSize: 500 * 1024 * 1024,
+  },
+  // Universal formats
+  csv: {
+    extensions: ['.csv'],
+    mimeTypes: ['text/csv', 'application/csv'],
+    magicNumbers: [[0x00, 0x00]], // CSV can start with various characters
+    maxSize: 500 * 1024 * 1024,
+  },
+  kml: {
+    extensions: ['.kml'],
+    mimeTypes: ['application/vnd.google-earth.kml+xml', 'application/xml', 'text/xml'],
+    magicNumbers: [
+      [0x3c, 0x3f, 0x78, 0x6d, 0x6c], // <?xml
+      [0xef, 0xbb, 0xbf, 0x3c, 0x3f], // BOM + <?xml
+    ],
+    maxSize: 500 * 1024 * 1024,
+  },
 };
 
 /**

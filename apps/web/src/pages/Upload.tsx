@@ -2,7 +2,20 @@ import { useState, useRef } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { uploadFile, formatFileSize } from '../utils/api';
 
-const ALLOWED_EXTENSIONS = ['.slg', '.sl2', '.sl3', '.gpx', '.adm', '.dat', '.son', '.fsh', '.nv2', '.acd', '.acu'];
+const ALLOWED_EXTENSIONS = [
+  // Lowrance/Simrad/B&G
+  '.slg', '.sl2', '.sl3', '.usr', '.at5', '.zdf',
+  // Humminbird
+  '.dat', '.son', '.idx', '.hwr', '.ht', '.nv2', '.acd', '.acu',
+  // Garmin
+  '.gpx', '.adm',
+  // Raymarine
+  '.fsh',
+  // Furuno
+  '.rou', '.rat', '.mrk', '.trk', '.tzd',
+  // Universal formats
+  '.csv', '.kml'
+];
 const MAX_FILE_SIZE = 524288000; // 500MB
 
 interface FileWithProgress {
@@ -261,7 +274,7 @@ export default function Upload() {
 
           <h3 style={{ margin: '0 0 0.5rem 0' }}>Drop your fish finder files here</h3>
           <p style={{ color: '#666', margin: '0 0 1rem 0' }}>
-            Supports .slg, .sl2, .sl3, .gpx, .adm, .dat, .son, .fsh, .nv2, .acd, .acu
+            All fish finder brands supported: Lowrance, Humminbird, Garmin, Raymarine, Simrad, Furuno
           </p>
         </div>
 
