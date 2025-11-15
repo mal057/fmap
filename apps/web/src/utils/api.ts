@@ -166,8 +166,8 @@ export async function getFile(fileId: string): Promise<FileMetadata> {
     throw new Error(error.error || 'Failed to fetch file');
   }
 
-  const data = await response.json();
-  return data.file;
+  // API returns file data directly, not wrapped in { file: ... }
+  return response.json();
 }
 
 /**
