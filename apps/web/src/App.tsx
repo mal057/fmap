@@ -5,6 +5,7 @@ import Login from './pages/Login';
 import Register from './pages/Register';
 import Profile from './pages/Profile';
 import EnvTest from './pages/EnvTest';
+import UploadPage from './pages/Upload';
 
 function Home() {
   const { isAuthenticated, user } = useAuth();
@@ -89,11 +90,7 @@ function AppRoutes() {
         />
         <Route
           path="/upload"
-          element={
-            <ProtectedRoute>
-              <Upload />
-            </ProtectedRoute>
-          }
+          element={<UploadPage />}
         />
         <Route
           path="/waypoints"

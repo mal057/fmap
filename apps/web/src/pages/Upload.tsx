@@ -201,13 +201,11 @@ export default function Upload() {
         onDragOver={handleDragOver}
         onDragLeave={handleDragLeave}
         onDrop={handleDrop}
-        onClick={() => fileInputRef.current?.click()}
         style={{
           border: `2px dashed ${isDragging ? '#007bff' : '#ccc'}`,
           borderRadius: '8px',
           padding: '3rem',
           textAlign: 'center',
-          cursor: 'pointer',
           backgroundColor: isDragging ? '#f0f8ff' : '#fafafa',
           marginBottom: '2rem',
         }}
@@ -220,11 +218,84 @@ export default function Upload() {
           onChange={handleFileInput}
           style={{ display: 'none' }}
         />
-        <div style={{ fontSize: '3rem', marginBottom: '1rem' }}>📁</div>
-        <h3>Drag and drop files here</h3>
-        <p style={{ color: '#666' }}>or click to select files</p>
+
+        {/* Image Placeholder */}
+        <div
+          onClick={() => fileInputRef.current?.click()}
+          style={{
+            cursor: 'pointer',
+            transition: 'transform 0.2s',
+          }}
+          onMouseOver={(e) => e.currentTarget.style.transform = 'scale(1.05)'}
+          onMouseOut={(e) => e.currentTarget.style.transform = 'scale(1)'}
+        >
+          <div style={{
+            width: '200px',
+            height: '200px',
+            margin: '0 auto 1.5rem',
+            borderRadius: '50%',
+            background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            boxShadow: '0 10px 30px rgba(0,0,0,0.2)',
+          }}>
+            <div style={{
+              width: '180px',
+              height: '180px',
+              borderRadius: '50%',
+              background: 'radial-gradient(circle at 30% 30%, #fff 0%, #f0f0f0 100%)',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              position: 'relative',
+              overflow: 'hidden',
+            }}>
+              {/* Fish mouth icon */}
+              <div style={{
+                fontSize: '4rem',
+                color: '#667eea',
+              }}>🐟</div>
+            </div>
+          </div>
+
+          <h3 style={{ margin: '0 0 0.5rem 0' }}>Drop your fish finder files here</h3>
+          <p style={{ color: '#666', margin: '0 0 1rem 0' }}>
+            Supports .slg, .sl2, .sl3, .gpx, .adm, .dat, .son, .fsh
+          </p>
+        </div>
+
+        {/* Browse Files Button */}
+        <button
+          onClick={() => fileInputRef.current?.click()}
+          style={{
+            padding: '0.75rem 2rem',
+            backgroundColor: '#007bff',
+            color: 'white',
+            border: 'none',
+            borderRadius: '6px',
+            fontSize: '1rem',
+            fontWeight: '600',
+            cursor: 'pointer',
+            boxShadow: '0 4px 6px rgba(0,123,255,0.3)',
+            transition: 'all 0.2s',
+          }}
+          onMouseOver={(e) => {
+            e.currentTarget.style.backgroundColor = '#0056b3';
+            e.currentTarget.style.transform = 'translateY(-2px)';
+            e.currentTarget.style.boxShadow = '0 6px 12px rgba(0,123,255,0.4)';
+          }}
+          onMouseOut={(e) => {
+            e.currentTarget.style.backgroundColor = '#007bff';
+            e.currentTarget.style.transform = 'translateY(0)';
+            e.currentTarget.style.boxShadow = '0 4px 6px rgba(0,123,255,0.3)';
+          }}
+        >
+          Browse Files
+        </button>
+
         <p style={{ color: '#999', fontSize: '0.875rem', marginTop: '1rem' }}>
-          Maximum file size: 500MB
+          Maximum file size: 500MB per file
         </p>
       </div>
 
