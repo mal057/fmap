@@ -64,6 +64,27 @@ const ALLOWED_FILE_TYPES = {
     magicNumbers: [[0x00, 0x00]],
     maxSize: 500 * 1024 * 1024,
   },
+  // Humminbird NV2 files
+  nv2: {
+    extensions: ['.nv2'],
+    mimeTypes: ['application/octet-stream'],
+    magicNumbers: [[0x00, 0x00]],
+    maxSize: 500 * 1024 * 1024,
+  },
+  // AutoChart/Humminbird ACD files
+  acd: {
+    extensions: ['.acd'],
+    mimeTypes: ['application/octet-stream'],
+    magicNumbers: [[0x00, 0x00]],
+    maxSize: 500 * 1024 * 1024,
+  },
+  // Humminbird ACU files
+  acu: {
+    extensions: ['.acu'],
+    mimeTypes: ['application/octet-stream'],
+    magicNumbers: [[0x00, 0x00]],
+    maxSize: 500 * 1024 * 1024,
+  },
 };
 
 /**
