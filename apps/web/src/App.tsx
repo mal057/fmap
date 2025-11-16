@@ -42,16 +42,6 @@ function Home() {
   );
 }
 
-function Upload() {
-  return (
-    <div>
-      <h2>Upload Waypoints</h2>
-      <p>Upload waypoint files from Lowrance, Garmin, or Humminbird devices</p>
-      <Link to="/">Back to Home</Link>
-    </div>
-  );
-}
-
 function Waypoints() {
   return (
     <div>
