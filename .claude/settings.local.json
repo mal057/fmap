@@ -39,7 +39,13 @@
       "Bash(git add:*)",
       "Bash(git commit:*)",
       "WebSearch",
-      "Bash(npx wrangler:*)"
+      "Bash(npx wrangler:*)",
+      "Bash(git fetch:*)",
+      "Bash(git ls-tree:*)",
+      "Bash(gh run view:*)",
+      "Bash(pnpm install)",
+      "Bash(npx pnpm@9 install)",
+      "Bash(pnpm --filter @fmap/file-parsers type-check:*)"
     ],
     "deny": [],
     "ask": []
