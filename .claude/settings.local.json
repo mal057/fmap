@@ -45,7 +45,8 @@
       "Bash(gh run view:*)",
       "Bash(pnpm install)",
       "Bash(npx pnpm@9 install)",
-      "Bash(pnpm --filter @fmap/file-parsers type-check:*)"
+      "Bash(pnpm --filter @fmap/file-parsers type-check:*)",
+      "Bash(pnpm lint:*)"
     ],
     "deny": [],
     "ask": []
